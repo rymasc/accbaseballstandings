@@ -1,5 +1,7 @@
+{    
+    "divisions":[
     {
-        "division": "Atlantic",
+        "name": "Atlantic",
         "teams": [
             {
                 "name":"NC State",
@@ -15,4 +17,19 @@
                 "name":"Clemson"
             }
         ]
+    },
+
+    {
+        "name": "Coastal",
+        "teams": [
+            {
+                "name":"North Carolina"
+
+            },
+            {
+                "name":"Duke"
+            }
+        ]
     }
+    ]  
+}
