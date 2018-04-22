@@ -6,12 +6,18 @@ const ws = 'https://d1baseball.com'
 request('https://d1baseball.com/conference/atlantic-coast-conference', function (error, response, html) {
   if (!error && response.statusCode == 200) {
     var $ = cheerio.load(html);
-    $('.table-group').each(function(i, element){
+    var conference = {};
+    var divisions = [];
+
+    $('.table-group').each(function(){
         var div = $(this);
+        var division = {};
         var division_title = div.find("h4");
+        division.name = division_title;
         var division_table = div.find("table").find("tbody");
         // Team Record Win% GB Overall Overall% Streak
         var teams =[];
+
         division_table.find("tr").each(function(){
 
             var team = {};
@@ -44,7 +50,9 @@ request('https://d1baseball.com/conference/atlantic-coast-conference', function 
             });
             teams.push(team);
         });
-        console.log(teams[0]);
+        division.teams = teams;
+        divisions.push(division);
+        conference.divisions = divisions;        
     });
   }
 });
