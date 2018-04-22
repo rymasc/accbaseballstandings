@@ -1,0 +1,18 @@
+    {
+        "division": "Atlantic",
+        "teams": [
+            {
+                "name":"NC State",
+                "website":"/team/ncstate",
+                "record":"15-5",
+                "winp":0.75,
+                "gb":0,
+                "overall":"31-7",
+                "overallp":0.816,
+                "streak":"W5"
+            },
+            {
+                "name":"Clemson"
+            }
+        ]
+    }
