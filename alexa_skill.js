@@ -1,10 +1,11 @@
 const Alexa = require('alexa-sdk');
-
+const baseballLib = require('./baseballLib');
 const SKILL_NAME = 'ACC Baseball';
 const GET_FACT_MESSAGE = "Here's your fact: ";
 const HELP_MESSAGE = 'You can say tell me a space fact, or, you can say exit... What can I help you with?';
 const HELP_REPROMPT = 'What can I help you with?';
 const STOP_MESSAGE = 'Goodbye!';
+var ACCData = {};
 
 
 //=========================================================================================================================================
@@ -14,7 +15,13 @@ const STOP_MESSAGE = 'Goodbye!';
 const handlers = {
     'LaunchRequest': function () {
         this.response.speak("Hello welcome to " + SKILL_NAME);
-        this.emit('GetNewFactIntent');
+        baseballLib.getACCData().then(result => {
+            ACCData = result;
+            console.log(result);
+        }).catch(console.log);
+                
+
+        //this.emit('GetNewFactIntent');
     },
     // 'GetNewFactIntent': function () {
     //     const factArr = data;
