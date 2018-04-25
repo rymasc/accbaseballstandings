@@ -22,6 +22,7 @@ const handlers = {
                 
 
         //this.emit('GetNewFactIntent');
+        this.emit(':tell', "Hello!");
     },
     // 'GetNewFactIntent': function () {
     //     const factArr = data;
@@ -39,14 +40,17 @@ const handlers = {
 
         this.response.speak(speechOutput).listen(reprompt);
         this.emit(':responseReady');
+        this.emit(':tell', "Help!");
     },
     'AMAZON.CancelIntent': function () {
         this.response.speak(STOP_MESSAGE);
         this.emit(':responseReady');
+        this.emit(':tell', "Cancel!");
     },
     'AMAZON.StopIntent': function () {
         this.response.speak(STOP_MESSAGE);
         this.emit(':responseReady');
+        this.emit(':tell', "Goodbye!");
     },
 };
 
